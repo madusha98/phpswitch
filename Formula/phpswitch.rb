@@ -25,8 +25,13 @@ class Phpswitch < Formula
       Then reload your shell:
         source ~/.zshrc  # or source ~/.bashrc
 
-      Quick start:
+      Commands:
         phpswitch 8.3              # Switch to PHP 8.3
+        phpswitch install 8.2      # Install PHP 8.2
+        phpswitch uninstall 7.4    # Uninstall PHP 7.4
+        phpswitch list             # List installed versions
+        phpswitch available        # Show available versions
+        phpswitch current          # Show current version info
         echo "8.2" > .php-version  # Auto-switch per project
     EOS
   end
