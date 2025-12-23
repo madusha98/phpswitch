@@ -35,7 +35,7 @@ brew list | grep php
 
 ```bash
 # Add the tap
-brew tap yourusername/phpswitch
+brew tap madusha98/phpswitch
 
 # Install
 brew install phpswitch
@@ -45,7 +45,7 @@ brew install phpswitch
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/phpswitch.git
+git clone https://github.com/madusha98/phpswitch.git
 cd phpswitch
 
 # Run the installer
@@ -164,7 +164,7 @@ php -v  # PHP 7.4.x ✓
 
 ```bash
 # Add the tap
-brew tap yourusername/phpswitch
+brew tap madusha98/phpswitch
 
 # Install
 brew install phpswitch
@@ -191,13 +191,13 @@ brew upgrade phpswitch
 **Uninstall:**
 ```bash
 brew uninstall phpswitch
-brew untap yourusername/phpswitch
+brew untap madusha98/phpswitch
 ```
 
 ### Method 2: Install Script
 
 ```bash
-git clone https://github.com/yourusername/phpswitch.git
+git clone https://github.com/madusha98/phpswitch.git
 cd phpswitch
 ./install.sh
 source ~/.zshrc  # or ~/.bashrc
@@ -213,7 +213,7 @@ source ~/.zshrc  # or ~/.bashrc
 
 **Step 1:** Clone to install location
 ```bash
-git clone https://github.com/yourusername/phpswitch.git ~/.phpswitch
+git clone https://github.com/madusha98/phpswitch.git ~/.phpswitch
 ```
 
 **Step 2:** Add to shell configuration
