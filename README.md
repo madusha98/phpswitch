@@ -7,29 +7,19 @@ A simple, lightweight PHP version manager for macOS. Switch between multiple PHP
 - ⚡ **Instant switching** - Change PHP versions in milliseconds
 - 🎯 **Simple** - Just one command: `phpswitch 8.3`
 - 📁 **Project-aware** - Auto-switch with `.php-version` files
+- 📦 **Built-in management** - Install, uninstall, and list PHP versions
 - 🔄 **Smart PATH management** - No conflicts with other tools
 - 🍺 **Homebrew native** - Uses your existing PHP installations
-- 🪶 **Lightweight** - Only ~60 lines of Bash
+- 🪶 **Lightweight** - Pure Bash, no dependencies
 
 ## Prerequisites
 
 - macOS (Intel or Apple Silicon)
 - [Homebrew](https://brew.sh)
-- One or more PHP versions installed via Homebrew
 
 ## Quick Start
 
-### 1. Install PHP versions (if you haven't already)
-
-```bash
-# Install the versions you need
-brew install php@8.3 php@8.2 php@8.1 php@7.4
-
-# Verify installations
-brew list | grep php
-```
-
-### 2. Install phpswitch
+### 1. Install phpswitch
 
 **Option A: Via Homebrew (Recommended)**
 
@@ -83,10 +73,13 @@ source ~/.bashrc   # for Bash
 # Or simply restart your terminal
 ```
 
-### 4. Start using
+### 4. Install and use PHP versions
 
 ```bash
-# Switch to PHP 8.3
+# Install a PHP version
+phpswitch install 8.3
+
+# Or switch if already installed
 phpswitch 8.3
 
 # Verify
@@ -96,20 +89,73 @@ php -v
 
 ## Usage
 
-### Manual Switching
+### Quick Reference
+
+```bash
+phpswitch 8.3              # Switch to PHP 8.3
+phpswitch install 8.2      # Install PHP 8.2
+phpswitch uninstall 7.4    # Uninstall PHP 7.4
+phpswitch list             # List installed versions
+phpswitch available        # Show available versions
+phpswitch current          # Show current version info
+```
+
+### Installing PHP Versions
+
+Install PHP versions directly through phpswitch:
+
+```bash
+# See what's available
+phpswitch available
+# Available PHP versions from Homebrew:
+#   php@7.4
+#   php@8.1
+#   php@8.2
+#   php@8.3
+
+# Install a version
+phpswitch install 8.3
+# Installing PHP 8.3 via Homebrew...
+# ✓ PHP 8.3 installed successfully!
+# Switch to it now? (y/n)
+```
+
+### Switching Versions
 
 Switch PHP version for your current terminal session:
 
 ```bash
 # Switch to different versions
 phpswitch 8.3
+# ✓ Switched to PHP 8.3
+# → PHP 8.3.0 (cli)
+
 phpswitch 8.2
 phpswitch 8.1
 phpswitch 7.4
+```
 
-# Check current version
-php -v
-which php
+### Managing Versions
+
+```bash
+# List installed versions
+phpswitch list
+# Installed PHP versions:
+#   ● 8.3 (current)
+#   ○ 8.2
+#   ○ 8.1
+
+# Check current version details
+phpswitch current
+# Current PHP:
+#   Version: 8.3.0
+#   Binary: /opt/homebrew/opt/php@8.3/bin/php
+#   Config: /opt/homebrew/etc/php/8.3/php.ini
+
+# Uninstall a version
+phpswitch uninstall 7.4
+# This will uninstall PHP 7.4
+# Are you sure? (y/n)
 ```
 
 ### Auto-Switching (Per Project)
@@ -238,41 +284,38 @@ source ~/.bashrc   # for Bash
 
 ## Managing PHP Versions
 
-### Installing PHP Versions
+### Using phpswitch (Recommended)
 
 ```bash
-# Install specific versions
-brew install php@8.3
-brew install php@8.2
-brew install php@8.1
-brew install php@7.4
+# See what's available
+phpswitch available
 
-# Search available versions
-brew search php@
+# Install a version
+phpswitch install 8.3
 
-# Install multiple at once
-brew install php@8.3 php@8.2 php@7.4
+# List installed versions
+phpswitch list
+
+# Uninstall a version
+phpswitch uninstall 7.4
 ```
 
-### Checking Installed Versions
+### Using Homebrew Directly (Alternative)
+
+You can still use Homebrew commands if you prefer:
 
 ```bash
-# List installed PHP versions
+# Install
+brew install php@8.3
+
+# Uninstall
+brew uninstall php@7.4
+
+# List all PHP packages
 brew list | grep php
 
-# Check where they're installed
-ls -la /opt/homebrew/opt/ | grep php   # Apple Silicon
-ls -la /usr/local/opt/ | grep php      # Intel Mac
-```
-
-### Upgrading PHP Versions
-
-```bash
-# Upgrade all PHP versions
-brew upgrade php@8.3 php@8.2
-
-# Or upgrade everything
-brew upgrade
+# Upgrade
+brew upgrade php@8.3
 ```
 
 ## How It Works
