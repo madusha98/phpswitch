@@ -12,6 +12,49 @@ A simple, lightweight PHP version manager for macOS. Switch between multiple PHP
 - 🍺 **Homebrew native** - Uses your existing PHP installations
 - 🪶 **Lightweight** - Pure Bash, no dependencies
 
+## phpswitch vs phpbrew
+
+phpswitch is **not** a replacement for phpbrew - they serve different needs:
+
+### phpbrew
+- **Builds PHP from source** - Compiles each version (10-30 minutes per install)
+- **Full control** - Custom configurations, variants, and extensions
+- **Comprehensive** - Manages PHP builds, extensions, and configurations
+- **Best for:** Developers who need custom PHP builds with specific compile options
+
+```bash
+# phpbrew workflow
+phpbrew install 8.3 +default +mysql +gd  # 20+ minutes
+phpbrew switch 8.3
+```
+
+### phpswitch (this tool)
+- **Uses Homebrew** - Pre-built binaries (30 seconds to install)
+- **Simple switching** - Just manages PATH and version switching
+- **Lightweight** - ~240 lines of Bash, no compilation needed
+- **Best for:** Homebrew users who want instant switching between versions
+
+```bash
+# phpswitch workflow
+phpswitch install 8.3  # 30 seconds via Homebrew
+phpswitch 8.3          # Instant
+```
+
+### Quick Comparison
+
+| Feature | phpbrew | phpswitch |
+|---------|---------|-----------|
+| Installation time | 10-30 min/version | 30 seconds |
+| Build from source | ✅ Yes | ❌ No (Homebrew) |
+| Extension management | ✅ Full control | ⚠️ Via Homebrew/PECL |
+| Switching speed | Fast | Instant |
+| .php-version support | ✅ Yes | ✅ Yes |
+| Custom builds | ✅ Yes | ❌ No |
+| Complexity | High | Low |
+
+**Use phpswitch if:** You use Homebrew and want simple, instant version switching.
+**Use phpbrew if:** You need custom PHP builds with specific compile-time options.
+
 ## Prerequisites
 
 - macOS (Intel or Apple Silicon)
